@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace CoffeeShopManagement_Easy
 {
-    public partial class Form1 : Form
+    public partial class welcomeForm : Form
     {
-        public Form1()
+        public welcomeForm()
         {
             InitializeComponent();
+            Product product = new Product();
+            
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            using(aboutForm about = new aboutForm())
+            {
+                about.ShowDialog();
+            }
         }
     }
 }
