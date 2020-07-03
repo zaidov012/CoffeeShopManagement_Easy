@@ -11,37 +11,62 @@ namespace CoffeeShopManagement_Easy
         private static int id = 1;
 
         int product_id;
+        String product_type;
         String product_name;
-        String product_description;
         Double product_price;
+        String img_path = "";
 
         public Product()
         {
             product_id = id;
-            product_name = "Unknown";
-            product_description = "No description";
+            product_type = "Unknown";
+            product_name = "No description";
             product_price = 0.00;
+            img_path = "";
 
             id++;
         }
 
-        public Product(String name, String desc, Double price)
+        public Product(String type, String name, Double price)
         {
             product_id = id;
+            product_type = type;
             product_name = name;
-            product_description = desc;
             product_price = price;
+            img_path = "";
 
             id++;
         }
 
-        public void toString()
+        public Product(String type, String name, Double price, String path)
+        {
+            product_id = id;
+            product_type = type;
+            product_name = name;
+            product_price = price;
+            img_path = path;
+
+            id++;
+        }
+
+        public void printString()
         {
             String result = 
                 $"Product ID: {product_id}\n" +
-                $"Product Name: {product_name}\n" +
-                $"Product Description: {product_description}\n" +
+                $"Product Name: {product_type}\n" +
+                $"Product Description: {product_name}\n" +
                 $"Product Price: {product_price}";
+
+            Console.WriteLine(result);
+        }
+
+        override public String ToString()
+        {
+            String result =
+                $"Product ID: {product_id}\t" +
+                String.Format($"Product Type: {product_type, -25}\t") +
+                String.Format($"Product Name: {product_name, -60}\t") +
+                String.Format($"Product Price: {product_price, -15}");
 
             return result;
         }
